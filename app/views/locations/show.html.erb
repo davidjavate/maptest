@@ -1,0 +1,16 @@
+
+<div id='map-two' class='map'> </div>
+
+
+<script>
+L.mapbox.accessToken = 'pk.eyJ1IjoiZGF2aWRqYXZhdGUiLCJhIjoiNHpuQVN6ZyJ9.pP7v8vVU8qXdQID-CZI99w';
+var map = L.mapbox.map('map-two', 'davidjavate.jd8jfekm', {
+    scrollWheelZoom: false
+}).setView([<%=@location.latitude %>,<%= @location.longitude%>], 16);
+
+var myLayer = L.mapbox.featureLayer().addTo(map);
+
+myLayer.setGeoJSON(<%=raw @geojson %>);
+
+
+</script>
